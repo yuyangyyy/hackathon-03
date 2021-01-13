@@ -1,4 +1,4 @@
-const model = require("../models/produits");
+const model = require('../models/produits');
 
 class Produits {
   static getOne = async (req, res, next) => {
