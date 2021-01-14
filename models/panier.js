@@ -7,6 +7,12 @@ class Panier {
     return typeof result === "string" ? result : result[0];
   };
 
+  static getOneByItemId = async (id) => {
+    const sql = "SELECT * FROM produits_has_panier where  produits_id = ? ";
+    const result = await mysql.query(sql, id).catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
+  };
+
   static addOne = async (body) => {
     const result = await mysql.query(
       "INSERT INTO produits_has_panier set ?",

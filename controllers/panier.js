@@ -57,5 +57,10 @@ class Panier {
     const data = await model.getAllpanier();
     res.status(200).json(data);
   };
+
+  static getOneByItemId = async (req, res, next) => {
+    const oneItem = await model.getOneByItemId(req.params.id);
+    res.status(200).json(oneItem[0]);
+  };
 }
 module.exports = Panier;
