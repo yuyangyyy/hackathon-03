@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `panier`;
 CREATE TABLE `panier` (
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +58,7 @@ CREATE TABLE `panier` (
 
 LOCK TABLES `panier` WRITE;
 /*!40000 ALTER TABLE `panier` DISABLE KEYS */;
+INSERT INTO `panier` VALUES (1);
 /*!40000 ALTER TABLE `panier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,14 +102,16 @@ DROP TABLE IF EXISTS `produits_has_panier`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `produits_has_panier` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `produits_id` int NOT NULL,
   `panier_id` int NOT NULL,
-  PRIMARY KEY (`produits_id`,`panier_id`),
+  `quantity` int DEFAULT NULL,
+  PRIMARY KEY (`id`,`produits_id`,`panier_id`),
   KEY `fk_produits_has_panier_panier1_idx` (`panier_id`),
   KEY `fk_produits_has_panier_produits_idx` (`produits_id`),
   CONSTRAINT `fk_produits_has_panier_panier1` FOREIGN KEY (`panier_id`) REFERENCES `panier` (`id`),
   CONSTRAINT `fk_produits_has_panier_produits` FOREIGN KEY (`produits_id`) REFERENCES `produits` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +120,7 @@ CREATE TABLE `produits_has_panier` (
 
 LOCK TABLES `produits_has_panier` WRITE;
 /*!40000 ALTER TABLE `produits_has_panier` DISABLE KEYS */;
+INSERT INTO `produits_has_panier` VALUES (2,7,1,3),(3,3,1,4),(4,2,1,4);
 /*!40000 ALTER TABLE `produits_has_panier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -129,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-14 14:11:31
+-- Dump completed on 2021-01-14 15:38:30
