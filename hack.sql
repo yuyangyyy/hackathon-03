@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: HACKATHON
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.3
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -76,6 +76,7 @@ CREATE TABLE `produits` (
   `description` varchar(500) DEFAULT NULL,
   `price` float DEFAULT NULL,
   `categories_id` int DEFAULT NULL,
+  `gradient` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_produits_categories1_idx` (`categories_id`),
   CONSTRAINT `fk_produits_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`)
@@ -88,7 +89,7 @@ CREATE TABLE `produits` (
 
 LOCK TABLES `produits` WRITE;
 /*!40000 ALTER TABLE `produits` DISABLE KEYS */;
-INSERT INTO `produits` VALUES (2,'morinaga',NULL,'uploads/Amazake-transparent.png','BLALALALA',2.5,2),(3,'dydo-blend',NULL,'uploads/Cafe-transparent.png','dfgdfgdfg',3.5,2),(4,'chips-demin',NULL,'uploads/DSlayer-transparent.png','sdfsdfsdd',1.5,1),(5,'takoyaki-tei',NULL,'uploads/snacks-transparent.png','sdfsdfsd',1.5,1),(6,'tyran-habanero-spicy-rings',NULL,'uploads/SpicySnacks-transparents.png','dfgdfgdf',2.1,1),(7,'the-vert',NULL,'uploads/TheVert-transparent.png','dfgfdgf',2.6,2),(8,'puchitto-raisin',NULL,'uploads/PuchittoRaisin-transparent.png','sfsdfsdfsdf',2.3,3),(9,'mugen-no-mi',NULL,'uploads/Galactic-transparent.png','dfgdfgfdg',3.5,3),(10,'happy-nikukyu',NULL,'uploads/panda-transparent.png','sdfsdfsdf',4.5,3);
+INSERT INTO `produits` VALUES (2,'morinaga',NULL,'uploads/Amazake-transparent.png','BLALALALA',2.5,2,'linear-gradient(45deg, #940A0E, #BF585B)'),(3,'dydo-blend',NULL,'uploads/Cafe-transparent.png','dfgdfgdfg',3.5,2,'linear-gradient(45deg, #A78C23, #CAB874)'),(4,'chips-demin',NULL,'uploads/DSlayer-transparent.png','sdfsdfsdd',1.5,1,'linear-gradient(45deg, #D45800, #C28961)'),(5,'takoyaki-tei',NULL,'uploads/snacks-transparent.png','sdfsdfsd',1.5,1,'linear-gradient(45deg, #FBC900, #E1CF88)'),(6,'tyran-habanero-spicy-rings',NULL,'uploads/SpicySnacks-transparents.png','dfgdfgdf',2.1,1,'linear-gradient(45deg, #D45800, #C28961)'),(7,'the-vert',NULL,'uploads/TheVert-transparent.png','dfgfdgf',2.6,2,'linear-gradient(45deg, #65D230, #94C274)'),(8,'puchitto-raisin',NULL,'uploads/PuchittoRaisin-transparent.png','sfsdfsdfsdf',2.3,3,'linear-gradient(45deg, #300459, #775696)'),(9,'mugen-no-mi',NULL,'uploads/Galactic-transparent.png','dfgdfgfdg',3.5,3,'linear-gradient(45deg, #031440, #2A468F)'),(10,'happy-nikukyu',NULL,'uploads/panda-transparent.png','sdfsdfsdf',4.5,3,'linear-gradient(45deg, #D7012A, #EF9BA5)');
 /*!40000 ALTER TABLE `produits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-13 16:45:09
+-- Dump completed on 2021-01-14  0:50:15
