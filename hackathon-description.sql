@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: HACKATHON
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.3
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -76,6 +76,7 @@ CREATE TABLE `produits` (
   `description` varchar(500) DEFAULT NULL,
   `price` float DEFAULT NULL,
   `categories_id` int DEFAULT NULL,
+  `gradient` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_produits_categories1_idx` (`categories_id`),
   CONSTRAINT `fk_produits_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`)
@@ -88,7 +89,7 @@ CREATE TABLE `produits` (
 
 LOCK TABLES `produits` WRITE;
 /*!40000 ALTER TABLE `produits` DISABLE KEYS */;
-INSERT INTO `produits` VALUES (2,'morinaga',NULL,'uploads/Amazake-transparent.png','BLALALALA',2.5,2),(3,'dydo-blend',NULL,'uploads/Cafe-transparent.png','dfgdfgdfg',3.5,2),(4,'chips-demin',NULL,'uploads/DSlayer-transparent.png','sdfsdfsdd',1.5,1),(5,'takoyaki-tei',NULL,'uploads/snacks-transparent.png','sdfsdfsd',1.5,1),(6,'tyran-habanero-spicy-rings',NULL,'uploads/SpicySnacks-transparents.png','dfgdfgdf',2.1,1),(7,'the-vert',NULL,'uploads/TheVert-transparent.png','dfgfdgf',2.6,2),(8,'puchitto-raisin',NULL,'uploads/PuchittoRaisin-transparent.png','sfsdfsdfsdf',2.3,3),(9,'mugen-no-mi',NULL,'uploads/Galactic-transparent.png','dfgdfgfdg',3.5,3),(10,'happy-nikukyu',NULL,'uploads/panda-transparent.png','sdfsdfsdf',4.5,3);
+INSERT INTO `produits` VALUES (2,'Amazake',NULL,'uploads/Amazake-transparent.png','Amazake is a traditional drink made from fermented rice, slightly alcoholic (less than 1%). Sweet, Amazake has a naturally milky appearance.',2.5,2,'linear-gradient(45deg, #940A0E, #BF585B)'),(3,'DyDo Blend Coffee Latte - Demon Slayer',NULL,'uploads/Cafe-transparent.png','DyDo Blend Coffee Original celebrates its 45th anniversary with a magnificent collaboration with Demon Slayer, 8 different models available! Drink it hot or cold! Cans are chosen randomly.',3.5,2,'linear-gradient(45deg, #A78C23, #CAB874)'),(4,'Potato Maru Demon Slayer (Salt)',NULL,'uploads/DSlayer-transparent.png','Exciting collaboration! “Demon Slayer” x Potato Maru! Satisfy yours chips cravings with these crispy potato snacks! Salt flavor. There are 4 types of original packages.',1.5,1,'linear-gradient(45deg, #D45800, #C28961)'),(5,'Tokoyaki Tei',NULL,'uploads/snacks-transparent.png','Tokoyaki Tei, puffed corn balls that taste exactly like our favorite takoyaki. This is as close as you can get to eating the real thing! You can taste the sauce, the mayonnaise, and the octopus, in the same round shape! Try some, and you’ll swear it’s the real taste of takoyaki!',1.5,1,'linear-gradient(45deg, #FBC900, #E1CF88)'),(6,'Tyrant Habanero Spicy Rings',NULL,'uploads/SpicySnacks-transparents.png','Tohato spicy rings. One of the hottest chips around! Since 2003, these flaming rings of death have been burning their way around Japan! Don’t be deceived by the first bite, the after bites back! Have a taste. We dare you. ;) Spice indicator: 5/5.',2.1,1,'linear-gradient(45deg, #D45800, #C28961)'),(7,'Green Tea Can',NULL,'uploads/TheVert-transparent.png','Japanese Green Tea Can. Oi Ocha rearrange the culture of Japanese “Green Tea” to suit the lifestyles of the people in the world, contributing to a healthy and joyful everyday life with flavor and fun.',2.6,2,'linear-gradient(45deg, #65D230, #94C274)'),(8,'Puchitto Grape',NULL,'uploads/PuchittoRaisin-transparent.png','Puchitti Grappe soft candy is fun to eat and tastes great too! You can pick one grape off the brunch or eat the brunch whole! Great grape taste that makes you say, “Yum!” :)',2.3,3,'linear-gradient(45deg, #300459, #775696)'),(9,'Mugen no mi',NULL,'uploads/Galactic-transparent.png','Small candies, 3 flavors: soda(blue), grape(pink) and cola(yellow). Try mixing to get a new flavor!',3.5,3,'linear-gradient(45deg, #031440, #2A468F)'),(10,'Happy Nikukyu',NULL,'uploads/panda-transparent.png','Adorable panda paw shaped gummies with a solt gummy texture. Mix berries flavour.',4.5,3,'linear-gradient(45deg, #D7012A, #EF9BA5)');
 /*!40000 ALTER TABLE `produits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-13 16:45:09
+-- Dump completed on 2021-01-14 14:11:31
