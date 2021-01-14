@@ -45,7 +45,7 @@ class Panier {
 
   static getAllpanier = async () => {
     const result = await mysql.query(
-      "SELECT * From produits join produits_has_panier on produits.id = produits_id where produits_has_panier.id =1"
+      "SELECT produits.id,produits.name,produits.photo,produits.description,produits.price,produits.gradient,produits.categories_id,produits_has_panier.quantity FROM produits join produits_has_panier on produits_id = produits.id WHERE produits_has_panier.panier_id = 1 "
     );
     return result[0];
   };
