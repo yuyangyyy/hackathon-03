@@ -1,24 +1,51 @@
-const mysql = require('../config/mysql');
+const mysql = require("../config/mysql");
 
 class Panier {
-  static findOne = async (id) => {
-    const result = await mysql.query(
-      'SELECT * FROM produits_has_panier where id=?',
-      id
-    );
-    return result[0];
+  static getOne = async (id) => {
+    const sql = "SELECT * FROM produits_has_panier where id = ?  ";
+    const result = await mysql.query(sql, id).catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
   };
+
   static addOne = async (body) => {
     const result = await mysql.query(
-      'INSERT INTO produits_has_panier set ?',
+      "INSERT INTO produits_has_panier set ?",
       body
     );
-    return result[0].insertId;
+    return typeof result === "string" ? result : result[0];
+  };
+
+  static checkPresence = async (id) => {
+    const sql = "SELECT * FROM produits_has_panier where produits_id = ?  ";
+    const result = await mysql.query(sql, id).catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
+  };
+
+  static deleteOne = async (id) => {
+    const sql =
+      "DELETE FROM produits_has_panier WHERE produits_has_panier.id = ?";
+    const result = await mysql.query(sql, id).catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
+  };
+
+  static deleteAll = async (id) => {
+    const sql = "DELETE FROM produits_has_panier WHERE produits_id = ? ";
+    const result = await mysql.query(sql, id).catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
+  };
+
+  static updateQuantity = async (id, value) => {
+    const sql =
+      "UPDATE produits_has_panier SET ? WHERE produits_has_panier.id = ? ";
+    const result = await mysql
+      .query(sql, [value, id])
+      .catch((err) => err.message);
+    return typeof result === "string" ? result : result[0];
   };
 
   static getAllpanier = async () => {
     const result = await mysql.query(
-      'SELECT * From produits join produits_has_panier on produits.id = produits_id where produits_has_panier.id =1'
+      "SELECT * From produits join produits_has_panier on produits.id = produits_id where produits_has_panier.id =1"
     );
     return result[0];
   };
