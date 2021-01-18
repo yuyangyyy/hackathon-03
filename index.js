@@ -6,6 +6,7 @@ const categories = require("./routes/categories");
 const images = require("./routes/images");
 const panier = require("./routes/panier");
 const path = require("path");
+const port = process.env.PORT || 8000;
 
 const app = express();
 
@@ -24,6 +25,6 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "build", "index.html"));
 });
 
-const server = app.listen(process.env.SERVER_PORT, () => {
-  console.log(`Server is listening on : ${process.env.SERVER_PORT}`);
+const server = app.listen(port, () => {
+  console.log(`Server is listening on : ${port}`);
 });
