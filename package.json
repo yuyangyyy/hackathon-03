@@ -6,6 +6,12 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "engines": {
+    "node": "12.19.0"
+  },
+  "keywords": [
+    "heroku"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romainheloise/hackathon-03.git"
