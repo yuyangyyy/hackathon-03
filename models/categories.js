@@ -2,7 +2,7 @@ const mysql = require("../config/mysql");
 
 class Categories {
   static getProductsFromCat = async (id) => {
-    const sql = "SELECT * FROM HACKATHON.produits WHERE categories_id = ? ";
+    const sql = "SELECT * FROM produits WHERE categories_id = ? ";
     const result = await mysql.query(sql, id).catch((err) => err.message);
     return typeof result === "string" ? result : result[0];
   };

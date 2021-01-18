@@ -1,10 +1,11 @@
 const mysql = require("mysql2");
 
 const pool = mysql.createPool({
-  host: "us-cdbr-east-03.cleardb.com",
-  user: "bc6b13e3fb4097",
-  database: "heroku_7ac7156427cb487",
-  password: "b5965a15",
+  host: "hwr4wkxs079mtb19.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  user: "kvbylv30m3zjlyw8",
+  port:3306,
+  database: "o5s3wix1ajp4230k",
+  password: "af1wvqto7vwzeg6y",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
